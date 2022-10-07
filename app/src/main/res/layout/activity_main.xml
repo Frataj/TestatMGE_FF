@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/raceResult"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:text="Rennergebnis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/userManagement"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:text="Benutzer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/raceResult"
+        app:layout_constraintTop_toBottomOf="@+id/raceResult" />
+
+    <Button
+        android:id="@+id/predict"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:text="Vorhersagen"
+        app:layout_constraintEnd_toEndOf="@+id/userManagement"
+        app:layout_constraintStart_toStartOf="@+id/userManagement"
+        app:layout_constraintTop_toBottomOf="@+id/userManagement" />
+
+    <Button
+        android:id="@+id/ranking"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:text="Rangliste"
+        app:layout_constraintEnd_toEndOf="@+id/predict"
+        app:layout_constraintStart_toStartOf="@+id/predict"
+        app:layout_constraintTop_toBottomOf="@+id/predict" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
