@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".CreateUserActivity">
 
-    <TextView
-        android:id="@+id/userNamePrompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextUserName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextUserName" />
-
     <EditText
         android:id="@+id/editTextTextUserName"
         android:layout_width="362dp"
@@ -51,4 +42,13 @@
         app:layout_constraintEnd_toEndOf="@+id/buttonPictureFromFile"
         app:layout_constraintStart_toStartOf="@+id/buttonPictureFromFile"
         app:layout_constraintTop_toBottomOf="@+id/buttonPictureFromFile" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Speichern"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

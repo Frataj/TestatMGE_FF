@@ -6,16 +6,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class CreateUserActivity extends AppCompatActivity {
+public class editUserActivity extends AppCompatActivity {
 
     public static Intent createIntent(Context context) {
-        Intent intent = new Intent(context, CreateUserActivity.class);
+        Intent intent = new Intent(context, editUserActivity.class);
         return intent;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_user);
+        setContentView(R.layout.activity_edit_user);
     }
 }
