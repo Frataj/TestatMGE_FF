@@ -8,21 +8,21 @@
 
     <Button
         android:id="@+id/createUser"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
         android:text="Neuen Benutzer erstellen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="34dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--In manage User sollen Benutzer bearbeitet und gelöscht werden können-->
     <Button
         android:id="@+id/manageUser"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
         android:text="Benutzer verwalten"
         app:layout_constraintEnd_toEndOf="@+id/createUser"
         app:layout_constraintStart_toStartOf="@+id/createUser"
-        tools:layout_editor_absoluteY="100dp" />
+        app:layout_constraintTop_toBottomOf="@+id/createUser" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

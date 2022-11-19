@@ -8,26 +8,27 @@
 
     <Button
         android:id="@+id/raceResult"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
         android:text="Rennergebnis"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/userManagement"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
         android:text="Benutzer"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/raceResult"
         app:layout_constraintStart_toStartOf="@+id/raceResult"
         app:layout_constraintTop_toBottomOf="@+id/raceResult" />
 
     <Button
         android:id="@+id/predict"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
         android:text="Vorhersagen"
         app:layout_constraintEnd_toEndOf="@+id/userManagement"
         app:layout_constraintStart_toStartOf="@+id/userManagement"
@@ -35,11 +36,19 @@
 
     <Button
         android:id="@+id/ranking"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
         android:text="Rangliste"
         app:layout_constraintEnd_toEndOf="@+id/predict"
         app:layout_constraintStart_toStartOf="@+id/predict"
         app:layout_constraintTop_toBottomOf="@+id/predict" />
+
+    <Button
+        android:id="@+id/switchTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch Theme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
