@@ -1,18 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".RaceResultsActivity">
-
-    <TextView
-        android:id="@+id/placeholder"
-        android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="show and edit race results !!!PLACEHOLDER!!!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".RaceResultsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Spinner
+            android:id="@+id/resultsDriverP19"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP18"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP18" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP20"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP19"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP19" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP10"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP9"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP9" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP1"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP14"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP13"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP13" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP5"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP4"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP4" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP18"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP17"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP17" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP11"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP10"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP10" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP13"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP12"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP12" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP12"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP11"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP11" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP8"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP7"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP7" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP4"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP3"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP3" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP7"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP6"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP6" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP15"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP14"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP14" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP3"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP2"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP2" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP9"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP8"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP8" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP16"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP15"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP15" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP2"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP1"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP1" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP17"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP16"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP16" />
+
+        <Spinner
+            android:id="@+id/resultsDriverP6"
+            android:layout_width="187dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/resultsDriverP5"
+            app:layout_constraintTop_toBottomOf="@+id/resultsDriverP5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

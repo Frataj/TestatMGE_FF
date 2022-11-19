@@ -15,14 +15,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--In manage User sollen Benutzer bearbeitet und gelöscht werden können-->
-    <Button
-        android:id="@+id/manageUser"
-        android:layout_width="374dp"
-        android:layout_height="53dp"
-        android:text="Benutzer verwalten"
+    <ListView
+        android:id="@+id/listOfUsers"
+        android:layout_width="410dp"
+        android:layout_height="581dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listOfUsersLabel" />
+
+    <TextView
+        android:id="@+id/listOfUsersLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All Users"
         app:layout_constraintEnd_toEndOf="@+id/createUser"
         app:layout_constraintStart_toStartOf="@+id/createUser"
         app:layout_constraintTop_toBottomOf="@+id/createUser" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,41 +7,15 @@
     tools:context=".CreateUserActivity">
 
     <EditText
-        android:id="@+id/editTextTextUserName"
+        android:id="@+id/editTextUserName"
         android:layout_width="362dp"
         android:layout_height="44dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonPictureFromFile"
-        android:layout_width="265dp"
-        android:layout_height="51dp"
-        android:text="Bild aus Datei"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextUserName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextUserName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextUserName" />
-
-    <TextView
-        android:id="@+id/userPicturePrompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profilbild"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonPictureFromCamera"
-        app:layout_constraintTop_toTopOf="@+id/buttonPictureFromFile"
-        tools:layout_editor_absoluteX="19dp" />
-
-    <Button
-        android:id="@+id/buttonPictureFromCamera"
-        android:layout_width="265dp"
-        android:layout_height="51dp"
-        android:text="Bild aufnehmen"
-        app:layout_constraintEnd_toEndOf="@+id/buttonPictureFromFile"
-        app:layout_constraintStart_toStartOf="@+id/buttonPictureFromFile"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPictureFromFile" />
 
     <Button
         android:id="@+id/saveButton"
