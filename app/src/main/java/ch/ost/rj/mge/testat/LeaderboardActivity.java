@@ -6,16 +6,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class editUserActivity extends AppCompatActivity {
+public class LeaderboardActivity extends AppCompatActivity {
 
     public static Intent createIntent(Context context) {
-        Intent intent = new Intent(context, editUserActivity.class);
-        return intent;
+        return new Intent(context, LeaderboardActivity.class);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_user);
+        setContentView(R.layout.activity_leaderboard);
     }
 }

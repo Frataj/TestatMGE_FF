@@ -9,12 +9,8 @@ import android.widget.Button;
 
 public class UserActivity extends AppCompatActivity {
 
-    private Button createUserButton;
-    private Button editUserButton;
-
     public static Intent createIntent(Context context) {
-        Intent intent = new Intent(context, UserActivity.class);
-        return intent;
+        return new Intent(context, UserActivity.class);
     }
 
     @Override
@@ -22,10 +18,10 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        createUserButton = findViewById(R.id.createUser);
+        Button createUserButton = findViewById(R.id.createUser);
         createUserButton.setOnClickListener(v -> showCreateUserActivity());
 
-        editUserButton = findViewById(R.id.manageUser);
+        Button editUserButton = findViewById(R.id.manageUser);
         editUserButton.setOnClickListener(v -> showEditUserActivity());
     }
 
@@ -35,7 +31,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void showEditUserActivity(){
-        Intent intent = editUserActivity.createIntent(this);
+        Intent intent = EditUserActivity.createIntent(this);
         startActivity(intent);
     }
 }
