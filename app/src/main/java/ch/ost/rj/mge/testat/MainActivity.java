@@ -2,6 +2,7 @@ package ch.ost.rj.mge.testat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,8 +14,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import ch.ost.rj.mge.testat.R;
+import ch.ost.rj.mge.testat.storage.UserRepository;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static Intent createIntent(Context context) {
+        return new Intent(context, MainActivity.class);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Button resultsButton = findViewById(R.id.raceResult);
         resultsButton.setOnClickListener(v -> showResults());
 
+        UserRepository.initialize(this);
     }
 
     private void showUserManagementActivity(){

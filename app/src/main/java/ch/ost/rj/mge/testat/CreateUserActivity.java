@@ -1,35 +1,45 @@
 package ch.ost.rj.mge.testat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.PackageManagerCompat;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
+import ch.ost.rj.mge.testat.storage.UserRepository;
+
 
 public class CreateUserActivity extends AppCompatActivity {
 
     EditText userInput;
-    String[] userName;
     Button saveButton;
-    String[] userNames;
+    Button changeImageButton;
+    ImageView playerAvatar;
 
-    private static final String PREFS_NAME = "preferences";
+    String userName;
+    Bitmap image;
+
+    String permission = Manifest.permission.CAMERA;
+    int permissionStatus;
+    private static final int CALLBACK_CODE = 1;
+    private static final int CAMERA_PERMISSION_CODE = 1;
+    private static final int CAMERA_REQUEST = 1888;
 
     public static Intent createIntent(Context context) {
         return new Intent(context, CreateUserActivity.class);
@@ -42,6 +52,9 @@ public class CreateUserActivity extends AppCompatActivity {
 
         saveButton = findViewById(R.id.saveButton);
         userInput = findViewById(R.id.editTextUserName);
+        changeImageButton = findViewById(R.id.addAvatarButton);
+        playerAvatar = findViewById(R.id.playerAvatar);
+
         userInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -55,20 +68,59 @@ public class CreateUserActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                userName = userInput.getText().toString();
             }
         });
+
+        changeImageButton.setOnClickListener(v -> changePlayerAvatar());
+
+
         saveButton.setOnClickListener(v -> showUserManagementActivity());
     }
 
     private void showUserManagementActivity(){
-        saveUserNames();
+        persistUser();
         Intent intent = UserActivity.createIntent(this);
         startActivity(intent);
     }
 
-    public  void saveUserNames()
+    private  void persistUser()
     {
+        playerAvatar.setDrawingCacheEnabled(true);
+        image = playerAvatar.getDrawingCache();
+        UserRepository.createUser(userName);
+    }
 
+    @SuppressLint("NewApi")
+    private void changePlayerAvatar(){
+        if(checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            requestPermissions(new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
+        }else{
+            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(cameraIntent, CAMERA_REQUEST);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == CAMERA_PERMISSION_CODE){
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this, "Camera permission granted", Toast.LENGTH_LONG).show();
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+            }else{
+                Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            playerAvatar.setImageBitmap(photo);
+        }
     }
 }

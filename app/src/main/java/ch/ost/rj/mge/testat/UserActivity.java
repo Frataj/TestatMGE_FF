@@ -20,9 +20,6 @@ public class UserActivity extends AppCompatActivity {
 
         Button createUserButton = findViewById(R.id.createUser);
         createUserButton.setOnClickListener(v -> showCreateUserActivity());
-
-        Button editUserButton = findViewById(R.id.manageUser);
-        editUserButton.setOnClickListener(v -> showEditUserActivity());
     }
 
     private void showCreateUserActivity(){
