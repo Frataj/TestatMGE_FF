@@ -2,8 +2,6 @@ package ch.ost.rj.mge.testat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.PackageManagerCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -12,7 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
@@ -23,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import ch.ost.rj.mge.testat.storage.UserRepository;
+import ch.ost.rj.mge.testat.storage.StorageController;
 
 
 public class CreateUserActivity extends AppCompatActivity {
@@ -34,6 +32,8 @@ public class CreateUserActivity extends AppCompatActivity {
 
     String userName;
     Bitmap image;
+
+    StorageController sc;
 
     String permission = Manifest.permission.CAMERA;
     int permissionStatus;
@@ -54,6 +54,7 @@ public class CreateUserActivity extends AppCompatActivity {
         userInput = findViewById(R.id.editTextUserName);
         changeImageButton = findViewById(R.id.addAvatarButton);
         playerAvatar = findViewById(R.id.playerAvatar);
+        sc = new StorageController();
 
         userInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -88,6 +89,7 @@ public class CreateUserActivity extends AppCompatActivity {
     {
         playerAvatar.setDrawingCacheEnabled(true);
         image = playerAvatar.getDrawingCache();
+        sc.saveImage(this, image, userName);
         UserRepository.createUser(userName);
     }
 

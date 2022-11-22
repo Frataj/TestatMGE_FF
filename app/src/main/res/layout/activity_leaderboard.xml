@@ -15,4 +15,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/playerAvatar"
+        android:layout_width="180sp"
+        android:layout_height="180sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/placeholder"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/playerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fabian"
+        app:layout_constraintBottom_toBottomOf="@+id/playerAvatar"
+        app:layout_constraintStart_toEndOf="@+id/playerAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/placeholder" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
