@@ -1,9 +1,11 @@
 package ch.ost.rj.mge.testat;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setCurrentTheme();
+
         Button userButton = findViewById(R.id.userManagement);
         userButton.setOnClickListener(v -> showUserManagementActivity());
 
@@ -38,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
         Button resultsButton = findViewById(R.id.raceResult);
         resultsButton.setOnClickListener(v -> showResults());
+
+        Button switchTheme = findViewById(R.id.switchTheme);
+        switchTheme.setOnClickListener(v -> switchDarkMode());
 
         UserRepository.initialize(this);
     }
@@ -60,6 +67,39 @@ public class MainActivity extends AppCompatActivity {
     private void showResults(){
         Intent intent = RaceResultsActivity.createIntent(this);
         startActivity(intent);
+    }
+
+    private void switchDarkMode(){
+        boolean darkMode;
+        String file = "ch.ost.mge.testat.preferences";
+        SharedPreferences preferences = getSharedPreferences(file, Context.MODE_PRIVATE);
+
+        darkMode = preferences.getBoolean("dark", false);
+        if(darkMode){
+            setTheme(R.style.light);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("dark", false);
+            editor.commit();
+        }
+        else{
+            setTheme(R.style.dark);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("dark", true);
+            editor.commit();
+        }
+    }
+
+    private void setCurrentTheme(){
+        boolean darkMode;
+        String file = "ch.ost.mge.testat.preferences";
+        SharedPreferences preferences = getSharedPreferences(file, Context.MODE_PRIVATE);
+
+        darkMode = preferences.getBoolean("dark", false);
+        if(darkMode){
+            setTheme(R.style.dark);
+        }else{
+            setTheme(R.style.light);
+        }
     }
 }
 

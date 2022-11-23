@@ -13,7 +13,7 @@ import ch.ost.rj.mge.testat.User;
 
 @Dao
 public interface UserDao {
-    @Query("SELECT * FROM users")
+    @Query("SELECT * FROM users ORDER BY score DESC")
     List<User> getAll();
 
     @Query("SELECT * FROM users WHERE name=:name")
