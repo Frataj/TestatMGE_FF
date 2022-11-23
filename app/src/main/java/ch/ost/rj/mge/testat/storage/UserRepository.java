@@ -19,11 +19,19 @@ public final class UserRepository {
 
     public static List<User> getAll() {return database.userDao().getAll();}
 
+    public static User getByName(String name){return database.userDao().getByName(name);
+    }
+
     public static void addUser(User newUser) {database.userDao().insertNew(newUser);}
 
-    public static void createUser(String name){
+    public static void updatePrediction(String prediction, String name){database.userDao().setPrediction(prediction, name);}
+
+    public static void updateScore(int score, String name){database.userDao().setScore(score, name);}
+
+    public static void createUser(String name, String imagePath){
         User user = new User();
         user.name = name;
+        user.imagePath = imagePath;
 
         addUser(user);
     }

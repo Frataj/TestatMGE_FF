@@ -9,13 +9,17 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import ch.ost.rj.mge.testat.storage.StorageController;
+import ch.ost.rj.mge.testat.storage.UserRepository;
 
 public class LeaderboardActivity extends AppCompatActivity {
 
     TextView userText;
     ImageView playerAvatar;
     Bitmap image;
+    TextView scoreDisplay;
 
     StorageController sc;
 
@@ -30,10 +34,12 @@ public class LeaderboardActivity extends AppCompatActivity {
 
         userText = findViewById(R.id.playerName);
         playerAvatar = findViewById(R.id.playerAvatar);
+        scoreDisplay = findViewById(R.id.score);
         sc = new StorageController();
+        User me = UserRepository.getByName("Fabian");
 
         image = sc.loadImageBitmap(this, "Fabian.jpg");
         playerAvatar.setImageBitmap(image);
-
+        scoreDisplay.setText(Integer.toString(me.score));
     }
 }

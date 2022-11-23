@@ -8,14 +8,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import ch.ost.rj.mge.testat.storage.UserRepository;
 
 public class RaceResultsActivity extends AppCompatActivity {
 
     ArrayList<String> drivers = new ArrayList<>();
     ArrayList<String> results = new ArrayList<>();
+    List<User> players;
 
     Spinner p1;
     Spinner p2;
@@ -38,6 +44,8 @@ public class RaceResultsActivity extends AppCompatActivity {
     Spinner p19;
     Spinner p20;
 
+    Button saveAndReturnButton;
+
     public static Intent createIntent(Context context) {
         return new Intent(context, RaceResultsActivity.class);
     }
@@ -47,6 +55,7 @@ public class RaceResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_race_results);
 
+        players = UserRepository.getAll();
         populateDrivers();
 
         p1 = findViewById(R.id.resultsDriverP1);
@@ -69,6 +78,9 @@ public class RaceResultsActivity extends AppCompatActivity {
         p18 = findViewById(R.id.resultsDriverP18);
         p19 = findViewById(R.id.resultsDriverP19);
         p20 = findViewById(R.id.resultsDriverP20);
+        saveAndReturnButton = findViewById(R.id.saveResults);
+
+        saveAndReturnButton.setOnClickListener(v -> calculateScore());
 
         ArrayAdapter<String> adapterp1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, drivers);
         adapterp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -417,5 +429,28 @@ public class RaceResultsActivity extends AppCompatActivity {
         drivers.add("Tsunoda");
         drivers.add("Latifi");
         drivers.add("Albon");
+    }
+
+    public void calculateScore(){
+        for (User user:players) {
+            if (user.prediction != null) {
+                List<String> prediction = predictionToList(user);
+                int score = user.score;
+                for (int i = 0; i < 20; i++) {
+                    int actualPosition = results.indexOf(prediction.get(i));
+                    if (Math.abs(i - actualPosition) <= 2) {
+                        score += 3 - Math.abs(i - actualPosition);
+                    }
+                }
+                UserRepository.updateScore(score, user.name);
+            }
+        }
+
+        Intent intent = MainActivity.createIntent(this);
+        startActivity(intent);
+    }
+
+    public List<String> predictionToList(User player){
+        return Arrays.asList(player.prediction.split("\\s*,\\s*"));
     }
 }

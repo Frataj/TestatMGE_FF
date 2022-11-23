@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
@@ -18,6 +20,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 import ch.ost.rj.mge.testat.storage.UserRepository;
 import ch.ost.rj.mge.testat.storage.StorageController;
@@ -31,13 +36,11 @@ public class CreateUserActivity extends AppCompatActivity {
     ImageView playerAvatar;
 
     String userName;
+    String imagePath;
     Bitmap image;
 
     StorageController sc;
 
-    String permission = Manifest.permission.CAMERA;
-    int permissionStatus;
-    private static final int CALLBACK_CODE = 1;
     private static final int CAMERA_PERMISSION_CODE = 1;
     private static final int CAMERA_REQUEST = 1888;
 
@@ -75,7 +78,6 @@ public class CreateUserActivity extends AppCompatActivity {
 
         changeImageButton.setOnClickListener(v -> changePlayerAvatar());
 
-
         saveButton.setOnClickListener(v -> showUserManagementActivity());
     }
 
@@ -90,7 +92,8 @@ public class CreateUserActivity extends AppCompatActivity {
         playerAvatar.setDrawingCacheEnabled(true);
         image = playerAvatar.getDrawingCache();
         sc.saveImage(this, image, userName);
-        UserRepository.createUser(userName);
+        imagePath = userName + ".jpg";
+        UserRepository.createUser(userName, imagePath);
     }
 
     @SuppressLint("NewApi")

@@ -21,6 +21,7 @@ public class PlayActivity extends AppCompatActivity {
     List<User> userList;
     ArrayList<String> drivers = new ArrayList<>();
     ArrayList<String> prediction = new ArrayList<>();
+    String currentPlayer;
 
     Spinner users;
     Spinner p1;
@@ -91,7 +92,17 @@ public class PlayActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, players);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         users.setAdapter(adapter);
+        users.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                currentPlayer = users.getSelectedItem().toString();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         ArrayAdapter<String> adapterp1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, drivers);
         adapterp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -395,10 +406,6 @@ public class PlayActivity extends AppCompatActivity {
         );
     }
 
-    public void getUsers(){
-
-    }
-
     public void populateDrivers(){
         drivers.add("Verstappen");
         drivers.add("Perez");
@@ -424,7 +431,6 @@ public class PlayActivity extends AppCompatActivity {
 
     public void correctArrays(){
         prediction.clear();
-        prediction.add(users.getSelectedItem().toString());
         prediction.add(p1.getSelectedItem().toString());
         prediction.add(p2.getSelectedItem().toString());
         prediction.add(p3.getSelectedItem().toString());
@@ -448,7 +454,12 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     public void savePrediction(){
-
+        StringBuilder str = new StringBuilder("");
+        for (String name:prediction) {
+            str.append(name).append(",");
+        }
+        String predictionString = str.toString();
+        UserRepository.updatePrediction(predictionString, currentPlayer);
     }
 
     public void saveAndReturn(){

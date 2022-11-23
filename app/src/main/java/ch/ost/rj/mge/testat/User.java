@@ -15,11 +15,11 @@ public final class User {
     @ColumnInfo
     public String name;
 
-    //@ColumnInfo(typeAffinity = ColumnInfo.BLOB)
-    //public Bitmap image;
+    @ColumnInfo
+    public String imagePath;
 
-    //@ColumnInfo
-    //public List<String> prediction;
+    @ColumnInfo
+    public String prediction;
 
     @ColumnInfo
     public int score;
