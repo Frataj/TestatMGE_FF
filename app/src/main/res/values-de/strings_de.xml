@@ -20,5 +20,6 @@
     <string name="navSaveHome">Speichern &amp; zurück</string>
     <!--user activity strings-->
     <string name="navCreateNewUser">Neuen Benutzer erstellen</string>
+    <string name="allUsers">Alle Benutzer</string>
 
 </resources>

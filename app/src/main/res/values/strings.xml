@@ -118,4 +118,5 @@
     <string name="navSaveHome">Save &amp; return</string>
     <!--user activity strings-->
     <string name="navCreateNewUser">Create new User</string>
+    <string name="allUsers">All users</string>
 </resources>

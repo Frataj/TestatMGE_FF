@@ -10,7 +10,7 @@
         android:id="@+id/createUser"
         android:layout_width="374dp"
         android:layout_height="53dp"
-        android:text="Neuen Benutzer erstellen"
+        android:text="@string/navCreateNewUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
