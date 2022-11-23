@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_edit_user">editUserActivity</string>
+
+    <!--create user activity strings-->
+    <string name="newUserName">Name</string>
+    <string name="saveNewUserButton">Save</string>
+    <string name="newUserTitle">Add new User</string>
+    <string name="takePictureButton">Take picture</string>
+    <!--Main activity strings-->
+    <string name="navRaceResult">Raceresults</string>
+    <string name="navUsers">Users</string>
+    <string name="navPrediction">Prediction</string>
+    <string name="navLeaderboard">Leaderboards</string>
+    <string name="switchTheme">Switch theme</string>
+    <!--play activity strings-->
+    <string name="chooseUser">User</string>
+    <string name="titlePlay">Make your prediction</string>
+    <string name="navSaveHome">Save &amp; return</string>
+    <!--user activity strings-->
+    <string name="navCreateNewUser">Create new User</string>
+
+</resources>

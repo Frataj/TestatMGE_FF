@@ -10,7 +10,7 @@
         android:id="@+id/raceResult"
         android:layout_width="374dp"
         android:layout_height="53dp"
-        android:text="Rennergebnis"
+        android:text="@string/navRaceResult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
         android:id="@+id/userManagement"
         android:layout_width="374dp"
         android:layout_height="53dp"
-        android:text="Benutzer"
+        android:text="@string/navUsers"
         app:layout_constraintEnd_toEndOf="@+id/raceResult"
         app:layout_constraintStart_toStartOf="@+id/raceResult"
         app:layout_constraintTop_toBottomOf="@+id/raceResult" />
@@ -29,7 +29,7 @@
         android:id="@+id/predict"
         android:layout_width="374dp"
         android:layout_height="53dp"
-        android:text="Vorhersagen"
+        android:text="@string/navPrediction"
         app:layout_constraintEnd_toEndOf="@+id/userManagement"
         app:layout_constraintStart_toStartOf="@+id/userManagement"
         app:layout_constraintTop_toBottomOf="@+id/userManagement" />
@@ -38,7 +38,7 @@
         android:id="@+id/ranking"
         android:layout_width="374dp"
         android:layout_height="53dp"
-        android:text="Rangliste"
+        android:text="@string/navLeaderboard"
         app:layout_constraintEnd_toEndOf="@+id/predict"
         app:layout_constraintStart_toStartOf="@+id/predict"
         app:layout_constraintTop_toBottomOf="@+id/predict" />
@@ -47,7 +47,7 @@
         android:id="@+id/switchTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Switch Theme"
+        android:text="@string/switchTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
