@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FEFF0000</color>
-    <color name="colorPrimaryDark">#FEFF0000</color>
-    <color name="colorAccent">#FEFF0000</color>
+    <color name="colorPrimary">#E10600</color>
+    <color name="colorPrimaryDark">#E10600</color>
+    <color name="colorAccent">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
-    <color name="colorPrimaryDarkMode">#151500</color>
-    <color name="colorPrimaryDarkNight">#151500</color>
+    <color name="colorPrimaryDarkMode">#E10600</color>
+    <color name="colorPrimaryDarkNight">#E10600</color>
+    <color name="backgroundColor">@color/white</color>
+    <color name="backgroundColorDark">#15151E</color>
 </resources>

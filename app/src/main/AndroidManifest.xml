@@ -18,14 +18,16 @@
         tools:targetApi="31">
         <activity
             android:name=".RaceResultsActivity"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/resultsTitle">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".PlayActivity"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/playTitle">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -33,7 +35,7 @@
         <activity
             android:name=".LeaderboardActivity"
             android:exported="false"
-            android:label="@string/title_activity_leaderboard">
+            android:label="@string/leaderboardTitle">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -41,21 +43,23 @@
         <activity
             android:name=".EditUserActivity"
             android:exported="false"
-            android:label="@string/title_activity_edit_user">
+            android:label="@string/editUserTitle">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".CreateUserActivity"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/createUserTitle">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".UserActivity"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/userTitle">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -63,7 +67,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="Formel 1 Tippspiel">
+            android:label="@string/mainTitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

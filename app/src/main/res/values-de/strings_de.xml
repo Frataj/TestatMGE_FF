@@ -21,5 +21,13 @@
     <!--user activity strings-->
     <string name="navCreateNewUser">Neuen Benutzer erstellen</string>
     <string name="allUsers">Alle Benutzer</string>
+    <!--titlebar strings-->
+    <string name="mainTitle">Formula 1 Tippspiel</string>
+    <string name="resultsTitle">Rennergebnis</string>
+    <string name="createUserTitle">Neuen Benutzer erstellen</string>
+    <string name="editUserTitle">Benutzer bearbeiten</string>
+    <string name="leaderboardTitle">Rangliste</string>
+    <string name="playTitle">Vorhersage</string>
+    <string name="userTitle">Benutzerübersicht</string>
 
 </resources>

@@ -119,4 +119,12 @@
     <!--user activity strings-->
     <string name="navCreateNewUser">Create new User</string>
     <string name="allUsers">All users</string>
+    <!--titlebar strings-->
+    <string name="mainTitle">Formula 1 prediction game</string>
+    <string name="resultsTitle">Race results</string>
+    <string name="createUserTitle">Create new user</string>
+    <string name="editUserTitle">Edit user</string>
+    <string name="leaderboardTitle">Leaderboard</string>
+    <string name="playTitle">Prediction</string>
+    <string name="userTitle">User overview</string>
 </resources>

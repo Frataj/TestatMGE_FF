@@ -20,15 +20,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(AppCompatDelegate.getDefaultNightMode() ==AppCompatDelegate.MODE_NIGHT_YES){
 
+        if(getCurrentDarkMode()){
             setTheme(R.style.NightMode);
         }else{
             setTheme(R.style.AppTheme);
         }
         setContentView(R.layout.activity_main);
-
-        //setCurrentTheme();
 
         Button userButton = findViewById(R.id.userManagement);
         userButton.setOnClickListener(v -> showUserManagementActivity());
@@ -75,36 +73,23 @@ public class MainActivity extends AppCompatActivity {
 
         darkMode = preferences.getBoolean("dark", false);
         if(darkMode){
-            //setTheme(R.style.AppTheme);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("dark", false);
             editor.commit();
-            //Intent intent = MainActivity.createIntent(this);
-            //startActivity(intent);
         }
         else{
-            //setTheme(R.style.NightMode);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("dark", true);
             editor.commit();
-            //Intent intent = MainActivity.createIntent(this);
-            //startActivity(intent);
         }
     }
 
-    private void setCurrentTheme(){
-        boolean darkMode;
+    private boolean getCurrentDarkMode(){
         String file = "ch.ost.mge.testat.preferences";
         SharedPreferences preferences = getSharedPreferences(file, Context.MODE_PRIVATE);
-
-        darkMode = preferences.getBoolean("dark", true);
-        if(darkMode){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }else{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }
+        return preferences.getBoolean("dark", true);
     }
 }
 
